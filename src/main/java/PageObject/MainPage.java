@@ -12,9 +12,9 @@ import java.util.List;
 public class MainPage {
     private final WebDriver driver;
     // Кнопка "Заказать" внизу страницы
-   private By buttonBottomOrder=By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button");
+   public final By buttonBottomOrder=By.xpath(".//div[@class='Home_FinishButton__1_cWm']/button");
     //Кнопка "Заказать" вверху страницы
-    private By buttonUpOrder = By.className("Button_Button__ra12g");
+    public final By buttonUpOrder = By.className("Button_Button__ra12g");
     //Кнопка использования аккордиона для поиска элементов List<>
     private By accordionButtonImportantQuestions = By.className("accordion__item");
 
@@ -28,14 +28,10 @@ public class MainPage {
     }
     public void openBrowser(){driver.get("https://qa-scooter.praktikum-services.ru/");}
 
-    public void openPageAndClickButtonBottomOrder(){
+    public void openPageAndClickButtonOrder(By orderButton){
         openBrowser();
         closeCookie();
-        driver.findElement(buttonBottomOrder).click();
-    }
-    public void openPageAndClickButtonUpOrder(){
-        openBrowser();
-        driver.findElement(buttonUpOrder).click();
+        driver.findElement(orderButton).click();
     }
     public void closeCookie(){
         driver.findElement(buttonCookie).click();

@@ -3,8 +3,9 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
 public class TestBase {
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     @Before
     public void setUp() {
@@ -13,7 +14,5 @@ public class TestBase {
 
     }
     @After
-    public void closeChrome() {
-        driver.quit();
-    }
+  public void closeChrome() {driver.quit();}
 }
